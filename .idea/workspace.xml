@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d01747ff-a79f-40ea-95fd-22f1497a8896" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/real_movements.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example_movements.json" afterPath="$PROJECT_DIR$/example_movements.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/navigation.py" afterPath="$PROJECT_DIR$/navigation.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,11 +32,31 @@
       <file leaf-file-name="navigation.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/navigation.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68641114" vertical-offset="341" max-vertical-offset="1485">
-              <caret line="49" column="88" selection-start-line="49" selection-start-column="88" selection-end-line="49" selection-end-column="88" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1710">
+              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
               <folding>
                 <element signature="e#120#135#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="real_movements.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/real_movements.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+              <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="example_movements.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example_movements.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+              <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -48,6 +70,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/example_movement.json" />
+        <option value="$PROJECT_DIR$/real_movements.json" />
+        <option value="$PROJECT_DIR$/example_movements.json" />
         <option value="$PROJECT_DIR$/navigation.py" />
       </list>
     </option>
@@ -296,10 +320,26 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/real_movements.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="16" selection-start-line="0" selection-start-column="16" selection-end-line="0" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example_movements.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="90">
+          <caret line="0" column="14" selection-start-line="0" selection-start-column="14" selection-end-line="0" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/navigation.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68641114" vertical-offset="341" max-vertical-offset="1485">
-          <caret line="49" column="88" selection-start-line="49" selection-start-column="88" selection-end-line="49" selection-end-column="88" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1710">
+          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
           <folding>
             <element signature="e#120#135#0" expanded="true" />
           </folding>

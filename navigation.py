@@ -7,7 +7,7 @@ import argparse
 import re
 import sys
 import os
-import urllib2
+import urllib, urllib2
 
 # Global variable for the base url of the space probe API
 BASE_URL = 'http://goserver.cloudapp.net:3000'
@@ -22,38 +22,53 @@ def navigation(args):
     # set local email variable to be the email specified by the user provided arguments
     email = args.email
 
-    # check the email is a valid email address format
+    # check the email provided is in a valid email address format and stop the script if it's invalid
     if check_email(email) is False:
-        print 'The email address you have entered is not valid. Please enter a valid email address'
+        print '\nThe email address you have entered is not valid. Please enter a valid email address\n'
         sys.exit(0)
-    else:
-        print 'The email address is valid'
 
-    ship_movements = get_movements(email)
+    # Call the get_movements method to retrieve the spacescraft's movements
+    spacecraft_movements = __get_movements(email)
 
-    print ship_movements
+    # stop the script here if for any reason the movements could not be retrieved
+    if not spacecraft_movements:
+        print "\nThe spacecraft's movements could not be retrieved, the script must end."
+        sys.exit(0)
+
+    print "\nThe spacecraft's movements are:"
+    print spacecraft_movements
+
+    
 
 
-def get_movements(email):
+def __get_movements(email):
     """
     Method to send a GET request to the space probe API and retrieve the spacecraft's movements
     :param email: email supplied by the user
     :return: movements: the movements of the spacescraft
     """
-    movements = 'Failed to get movements!'
+    movements = ''
 
-    url = BASE_URL + '/api/spaceprobe/getdata/' + email
+    # creates the full url to get data from
+    getdata_url = BASE_URL + '/api/spaceprobe/getdata/' + email
 
+    print "Retrieving spacecraft movements from the API..."
+#    try:
+#        movements = urllib2.urlopen(getdata_url).read()
+#    except IOError:
+#        print 'A connection to the server could not be made'
+#        raise
+#    except Exception as e:
+#        print "An unforeseen problem occurred while retrieving the spacecraft's movements"
+#        raise
 
-
-    ##########
     # Built a quick test version that returns the same json response that the API should
+    # so that i didn't have to query the API every time I ran the script
     example_movements_file = '/Users/chris/projects/navigation/example_movements.json'
     if os.path.exists(example_movements_file):
         # Retrieve the movements from the json file
         with open(example_movements_file, "r") as open_file:
             movements = open_file.read()
-    ##########
 
     return movements
 
@@ -86,7 +101,7 @@ def main():
     navigation(args)
 
     # debug message letting me know the script ended
-    print '\nPROGRAM COMPLETE\n'
+    print '\nSCRIPT COMPLETED\n'
 
 
 (__name__ == '__main__' and main())
