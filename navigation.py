@@ -38,7 +38,24 @@ def navigation(email):
     print spacecraft_movements
     print "\n"
 
-    
+    # create a dictionary object from the returned movements
+    movements_dict = eval(spacecraft_movements)
+
+    if movements_dict["Directions"][0] == 'FORWARD':
+        # if the first direction is a forward then we know the spacecraft started in one of three starting positions
+        # and for each starting position we then know the corresponding direction the craft is facing
+        print 'The first direction is forward'
+
+    if movements_dict["Directions"][0] == 'LEFT' or movements_dict["Directions"][0] == 'RIGHT':
+        # if the first direction is a left or right then we know the starting position of the
+        # spacecraft, but not which direction is it facing
+        print 'The first direction is a rotation'
+
+
+    # enumerate through the list of movements
+    for movement in movements_dict["Directions"]:
+        print movement
+
 
 def __get_movements(email):
     """
