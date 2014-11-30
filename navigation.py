@@ -7,27 +7,24 @@ import argparse
 import re
 import sys
 import os
-import urllib, urllib2
+import urllib2
 
 # Global variable for the base url of the space probe API
 BASE_URL = 'http://goserver.cloudapp.net:3000'
 
 
-def navigation(args):
+def navigation(email):
     """
     Method for navigating a probe to the correct coordinates
-    :param args: the arguments passed into the script by the user
+    :param email: the email address passed into the script by the user
     """
-
-    # set local email variable to be the email specified by the user provided arguments
-    email = args.email
 
     # check the email provided is in a valid email address format and stop the script if it's invalid
     if check_email(email) is False:
         print '\nThe email address you have entered is not valid. Please enter a valid email address\n'
         sys.exit(0)
 
-    # Call the get_movements method to retrieve the spacescraft's movements
+    # Call the get_movements method to retrieve the spacecraft's movements
     spacecraft_movements = __get_movements(email)
 
     # stop the script here if for any reason the movements could not be retrieved
@@ -35,17 +32,16 @@ def navigation(args):
         print "\nThe spacecraft's movements could not be retrieved, the script must end."
         sys.exit(0)
 
+    # debug message to print the ships movements
     print "\nThe spacecraft's movements are:"
     print spacecraft_movements
-
-    
 
 
 def __get_movements(email):
     """
     Method to send a GET request to the space probe API and retrieve the spacecraft's movements
     :param email: email supplied by the user
-    :return: movements: the movements of the spacescraft
+    :return: movements: the movements of the spacecraft
     """
     movements = ''
 
@@ -73,6 +69,31 @@ def __get_movements(email):
     return movements
 
 
+def __send_coordinates(email, x, y):
+    """
+    Method to send a GET request to the space probe API with the final coordinates and receive a response
+    :param email: the email address to send the coordinates with
+    :param x: the x coordinate to send
+    :param y: the y coordinate to send
+    :return: response: the response of the probe API
+    """
+
+    # creates the full url to submit data to
+    submitdata_url = BASE_URL + '/spaceprobe/submitdata/' + email + '/' + x + '/' + y
+
+    print "Submitting the final coordinates to the space probe API..."
+    try:
+        response = urllib2.urlopen(submitdata_url).read()
+    except IOError:
+        print 'A connection to the server could not be made'
+        raise
+    except Exception as e:
+        print "An unforeseen problem occurred while sending the coordinates"
+        raise
+
+    return response
+
+
 def check_email(email):
     """
     Method to check that an email is valid e.g. john@example.com
@@ -98,9 +119,9 @@ def main():
     args = __init__()
 
     # calls the navigation functionality while passing in the command line arguments
-    navigation(args)
+    navigation(args.email)
 
-    # debug message letting me know the script ended
+    # debug message letting me know the script has reached the end
     print '\nSCRIPT COMPLETED\n'
 
 
