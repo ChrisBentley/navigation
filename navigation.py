@@ -8,6 +8,7 @@ import re
 import sys
 import os
 import urllib2
+import json
 
 # Global variable for the base url of the space probe API
 BASE_URL = 'http://goserver.cloudapp.net:3000'
@@ -35,7 +36,9 @@ def navigation(email):
     # debug message to print the ships movements
     print "\nThe spacecraft's movements are:"
     print spacecraft_movements
+    print "\n"
 
+    
 
 def __get_movements(email):
     """
@@ -48,7 +51,7 @@ def __get_movements(email):
     # creates the full url to get data from
     getdata_url = BASE_URL + '/api/spaceprobe/getdata/' + email
 
-    print "Retrieving spacecraft movements from the API..."
+#    print "\nRetrieving spacecraft movements from the API..."
 #    try:
 #        movements = urllib2.urlopen(getdata_url).read()
 #    except IOError:
